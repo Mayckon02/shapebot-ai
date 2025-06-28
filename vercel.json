@@ -9,15 +9,5 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "env": {
-    "VITE_OPENAI_API_KEY": "@openai_api_key",
-    "VITE_PAYMENT_SECRET_KEY": "@payment_secret_key",
-    "VITE_PAYMENT_PUBLIC_KEY": "@payment_public_key",
-    "VITE_PAYMENT_API_URL": "@payment_api_url",
-    "VITE_UTMIFY_API_TOKEN": "@utmify_api_token",
-    "VITE_UTMIFY_API_URL": "@utmify_api_url",
-    "VITE_APP_URL": "@app_url"
-  }
+  ]
 }
-
