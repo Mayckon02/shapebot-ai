@@ -3,34 +3,26 @@ import axios from 'axios'
 // OpenAI Service
 export class OpenAIService {
   constructor() {
-    this.apiKey = import.meta.env.VITE_OPENAI_API_KEY
+    this.backendUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:5000'
   }
 
-  async sendMessage(messages) {
+  async sendMessage(messages ) {
     try {
       const response = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
+        `${this.backendUrl}/api/openai/chat`,
         {
-          model: 'gpt-3.5-turbo',
           messages,
-          max_tokens: 1000,
-          temperature: 0.7
-        },
-        {
-          headers: {
-            'Authorization': `Bearer ${this.apiKey}`,
-            'Content-Type': 'application/json'
-          }
         }
       )
       
-      return response.data.choices[0].message.content
+      return response.data.message
     } catch (error) {
-      console.error('Erro ao enviar mensagem para OpenAI:', error)
+      console.error('Erro ao enviar mensagem para OpenAI via backend:', error)
       throw new Error('Erro ao processar mensagem')
     }
   }
 }
+
 
 // Payment Gateway Service
 export class PaymentService {
