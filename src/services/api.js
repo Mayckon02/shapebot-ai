@@ -9,7 +9,7 @@ export class OpenAIService {
   async sendMessage(messages ) {
     try {
       const response = await axios.post(
-        `${this.backendUrl}/api/openai/chat`,
+                `${this.backendUrl}/api/chat`,
         {
           messages,
         }
